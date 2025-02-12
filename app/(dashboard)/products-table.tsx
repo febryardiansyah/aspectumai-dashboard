@@ -40,7 +40,7 @@ export function ProductsTable({
   function nextPage() {
     router.push(`/?offset=${offset}`, { scroll: false });
   }
-
+  
   return (
     <Card>
       <CardHeader>

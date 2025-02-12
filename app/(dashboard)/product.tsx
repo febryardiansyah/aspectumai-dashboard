@@ -17,13 +17,13 @@ export function Product({ product }: { product: SelectProduct }) {
   return (
     <TableRow>
       <TableCell className="hidden sm:table-cell">
-        <Image
+        {/* <Image
           alt="Product image"
           className="aspect-square rounded-md object-cover"
           height="64"
           src={product.imageUrl}
           width="64"
-        />
+        /> */}
       </TableCell>
       <TableCell className="font-medium">{product.name}</TableCell>
       <TableCell>
@@ -48,9 +48,9 @@ export function Product({ product }: { product: SelectProduct }) {
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem>Edit</DropdownMenuItem>
             <DropdownMenuItem>
-              <form action={deleteProduct}>
+              {/* <form action={deleteProduct}>
                 <button type="submit">Delete</button>
-              </form>
+              </form> */}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

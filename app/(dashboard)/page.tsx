@@ -2,20 +2,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { File, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProductsTable } from './products-table';
-import { getProducts } from '@/lib/db';
+import { SelectProduct } from '@/lib/db';
 
-export default async function ProductsPage(
-  props: {
-    searchParams: Promise<{ q: string; offset: string }>;
-  }
-) {
-  const searchParams = await props.searchParams;
-  const search = searchParams.q ?? '';
-  const offset = searchParams.offset ?? 0;
-  const { products, newOffset, totalProducts } = await getProducts(
-    search,
-    Number(offset)
-  );
+export default function ProductsPage() {
+  // const searchParams = await props.searchParams;
+  // const search = searchParams.q ?? '';
+  // const offset = searchParams.offset ?? 0;
+  const products: SelectProduct[] = [
+    {
+      id: 1,
+      name: 'Product 1',
+      status: 'active',
+      price: '100',
+      stock: 10,
+      availableAt: new Date(),
+      imageUrl: 'https://via.placeholder.com/100'
+    }
+  ];
 
   return (
     <Tabs defaultValue="all">
@@ -44,11 +47,7 @@ export default async function ProductsPage(
         </div>
       </div>
       <TabsContent value="all">
-        <ProductsTable
-          products={products}
-          offset={newOffset ?? 0}
-          totalProducts={totalProducts}
-        />
+        <ProductsTable products={products} offset={0} totalProducts={10} />
       </TabsContent>
     </Tabs>
   );
