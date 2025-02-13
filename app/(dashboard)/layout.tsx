@@ -54,9 +54,9 @@ export default function DashboardLayout({
         </div>
         <Analytics />
 
-        <footer className="border-t bg-background p-4 text-center text-sm text-muted-foreground">
+        {/* <footer className="border-t bg-background p-4 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Acme Inc. All rights reserved.</p>
-        </footer>
+        </footer> */}
       </main>
     </Providers>
   );
