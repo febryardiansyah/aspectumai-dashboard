@@ -17,14 +17,14 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator
-} from '@/components/ui/breadcrumb';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+} from '@/components/global/breadcrumb';
+import { Button } from '@/components/global/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/global/sheet';
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger
-} from '@/components/ui/tooltip';
+} from '@/components/global/tooltip';
 import { Analytics } from '@vercel/analytics/react';
 import { User } from './user';
 import { VercelLogo } from '@/components/icons';
@@ -53,6 +53,10 @@ export default function DashboardLayout({
           </main>
         </div>
         <Analytics />
+
+        <footer className="border-t bg-background p-4 text-center text-sm text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} Acme Inc. All rights reserved.</p>
+        </footer>
       </main>
     </Providers>
   );

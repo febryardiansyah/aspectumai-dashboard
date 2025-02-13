@@ -1,19 +1,18 @@
 import Image from 'next/image';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/global/badge';
+import { Button } from '@/components/global/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
+} from '@/components/global/dropdown-menu';
 import { MoreHorizontal } from 'lucide-react';
-import { TableCell, TableRow } from '@/components/ui/table';
-import { SelectProduct } from '@/lib/db';
-import { deleteProduct } from './actions';
+import { TableCell, TableRow } from '@/components/global/table';
+import { TBot } from '@/lib/bot';
 
-export function Product({ product }: { product: SelectProduct }) {
+export function Product({ botItem }: { botItem: TBot }) {
   return (
     <TableRow>
       <TableCell className="hidden sm:table-cell">
@@ -25,16 +24,16 @@ export function Product({ product }: { product: SelectProduct }) {
           width="64"
         /> */}
       </TableCell>
-      <TableCell className="font-medium">{product.name}</TableCell>
+      <TableCell className="font-medium">{botItem.name}</TableCell>
       <TableCell>
         <Badge variant="outline" className="capitalize">
-          {product.status}
+          {botItem.status}
         </Badge>
       </TableCell>
-      <TableCell className="hidden md:table-cell">{`$${product.price}`}</TableCell>
-      <TableCell className="hidden md:table-cell">{product.stock}</TableCell>
+      <TableCell className="hidden md:table-cell">{`${botItem.type}`}</TableCell>
+      <TableCell className="hidden md:table-cell">{botItem.model}</TableCell>
       <TableCell className="hidden md:table-cell">
-        {product.availableAt.toLocaleDateString("en-US")}
+        {botItem.createdAt.toLocaleDateString("en-US")}
       </TableCell>
       <TableCell>
         <DropdownMenu>

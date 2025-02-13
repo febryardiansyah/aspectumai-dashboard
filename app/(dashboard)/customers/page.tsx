@@ -4,7 +4,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle
-} from '@/components/ui/card';
+} from '@/components/global/card';
 
 export default function CustomersPage() {
   return (

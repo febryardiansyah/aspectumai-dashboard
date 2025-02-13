@@ -1,22 +1,35 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+'use client'
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/global/tabs';
 import { File, PlusCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/global/button';
 import { ProductsTable } from './products-table';
-import { SelectProduct } from '@/lib/db';
+import { TBot } from '@/lib/bot';
+import { useRouter } from 'next/navigation';
 
 export default function ProductsPage() {
+  const router = useRouter()
   // const searchParams = await props.searchParams;
   // const search = searchParams.q ?? '';
   // const offset = searchParams.offset ?? 0;
-  const products: SelectProduct[] = [
+  const products: TBot[] = [
     {
       id: 1,
       name: 'Product 1',
       status: 'active',
-      price: '100',
-      stock: 10,
-      availableAt: new Date(),
-      imageUrl: 'https://via.placeholder.com/100'
+      avatar: 'https://via.placeholder.com/64',
+      banner: 'https://via.placeholder.com/64',
+      description: 'Product description',
+      instructions: 'Product instructions',
+      type: 'Product type',
+      input: ['input'],
+      output: 'output',
+      model: 'model',
+      category: 'category',
+      greetings: 'greetings',
+      conversationStarter: ['conversationStarter'],
+      tokenPrice: 1,
+      createdAt: new Date()
     }
   ];
 
@@ -38,10 +51,10 @@ export default function ProductsPage() {
               Export
             </span>
           </Button>
-          <Button size="sm" className="h-8 gap-1">
+          <Button size="sm" className="h-8 gap-1" onClick={()=> router.push('/create-bot')}>
             <PlusCircle className="h-3.5 w-3.5" />
             <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-              Add Product
+              Add new Bot
             </span>
           </Button>
         </div>
